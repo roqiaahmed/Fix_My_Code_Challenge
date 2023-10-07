@@ -1,19 +1,21 @@
 #!/usr/bin/python3
 
 class square():
-    def __init__(self, width=0, height=0):
-        self.width = width
-        self.height = height
+    
+    width = 0
+    height = 0
 
-        if self.height != self.width:
-            raise ValueError("Width and height must be equal for a square.")
+    
+    def __init__(self, *args, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
 
     def area_of_my_square(self):
         """ Area of the square """
-        return self.width * self.width
+        return self.width * self.height
 
     def PermiterOfMySquare(self):
-        return (self.width * 4)
+        return (self.width * 2) + (self.height * 2)
 
     def __str__(self):
         return "{}/{}".format(self.width, self.height)
